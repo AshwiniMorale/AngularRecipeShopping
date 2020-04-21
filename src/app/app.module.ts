@@ -11,6 +11,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { FormsModule } from '@angular/forms';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { HighlightDirective } from './highlight.directive';
+import { ShoppingService } from './shopping-list/shopping.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { HighlightDirective } from './highlight.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
