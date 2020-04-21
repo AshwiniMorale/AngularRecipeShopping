@@ -10,7 +10,8 @@
     <app-recipe-item
         *ngFor= "let recipeEl of recipes"
         [recipe] = "recipeEl"
-        (selectedRecipe) = "onRecipeSelected(recipeEl)">
+        (selectedRecipe) = "onRecipeSelected(recipeEl)"
+         appHighlight >
     </app-recipe-item>
   </div>
 </div>

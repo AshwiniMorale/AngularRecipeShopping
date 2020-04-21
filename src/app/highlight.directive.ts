@@ -6,15 +6,17 @@ import { Directive, Input, HostBinding, HostListener, OnInit } from '@angular/co
 export class HighlightDirective implements OnInit {
 
   @Input() defaultColor: string = 'transparent';
-  @Input() highlightColor: string= 'blue';
+  @Input() highlightColor: string= 'darkgray';
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
   ngOnInit() {
     this.backgroundColor= this.defaultColor;
   }
+
   @HostListener('mouseenter') mouseover(eventData: Event) {
     this.backgroundColor = this.highlightColor;
   }
+
   @HostListener('mouseleave') mouseleave(eventData: Event) {
     this.backgroundColor = this.defaultColor;
   }
