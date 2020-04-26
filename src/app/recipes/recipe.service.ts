@@ -31,10 +31,14 @@ export class RecipeService{
     ];
 
     constructor(private shoppingService: ShoppingService) {}
+
     getRecipes(){
       return this.recipes.slice();
     }
 
+    getRecipe(index: number) {
+      return this.recipes[index];
+    }
     addIngredientsToShopingList(ingredients: Ingredient[]) {
       this.shoppingService.addIngredients(ingredients);
     }

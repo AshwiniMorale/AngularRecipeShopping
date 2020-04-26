@@ -22,9 +22,10 @@
           <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a style= "cursor: pointer;" (click) = "onAddToShoppingList()" >Add Ingredients</a></li>
-            <li><a href="#" appHighlight>Edit Recipe</a></li>
-            <li><a href="#" appHighlight>Delete Recipe</a></li>
+            <li><a (click)="onAddToShoppingList()"
+                   style= "cursor: pointer;" appHighlight>Add Ingredients</a></li>
+            <li><a style= "cursor: pointer;" (click)= "onClickEditRecipe()" appHighlight>Edit Recipe</a></li>
+            <li><a style= "cursor: pointer;"  appHighlight>Delete Recipe</a></li>
           </ul>
         </div>
       <!-- </div> -->

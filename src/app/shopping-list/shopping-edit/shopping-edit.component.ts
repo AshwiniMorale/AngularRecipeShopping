@@ -7,8 +7,8 @@ import { ShoppingService } from '../shopping.service';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-  @ViewChild('nameInput') name: ElementRef;
-  @ViewChild('amountInput') amount: ElementRef;
+  @ViewChild('nameInput', { static: false }) name: ElementRef;
+  @ViewChild('amountInput', { static: false }) amount: ElementRef;
 
   constructor(private shoppingService: ShoppingService) { }
 
@@ -20,6 +20,7 @@ export class ShoppingEditComponent implements OnInit {
     const amountIng = this.amount.nativeElement.value;
     const newIngredient = new Ingredient(nameIng, amountIng);
     this.shoppingService.addIngredient(newIngredient);
+    this.onClear();
   }
   onClear() {
     this.name.nativeElement.value = '';
