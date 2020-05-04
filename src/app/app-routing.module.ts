@@ -1,28 +1,17 @@
 import { NgModule } from '@angular/core';
 
-import { Routes, RouterModule } from '@angular/router';
-import { RecipesComponent } from './recipes/recipes.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RecipeItemComponent } from './recipes/recipes-list/recipe-item/recipe-item.component';
-import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [] =[
-{ path: 'recipes', component: RecipesComponent, children: [
-    { path: '', component: RecipeStartComponent },
-    { path: 'new', component: RecipeEditComponent },
-    { path: ':id', component: RecipesDetailComponent },
-    { path: ':id/edit', component: RecipeEditComponent }
-  ]
- },
-{ path: 'shopping-list', component: ShoppingListComponent },
-{ path: '', redirectTo: '/recipes', pathMatch: 'full' }
+{ path: '', redirectTo: '/recipes', pathMatch: 'full' },
+{ path : 'recipes', loadChildren: ()=> import('./recipes/recipes.module').then(m => m.RecipesModule) },
+{ path : 'shopping-list', loadChildren: ()=> import('./shopping-list/shopping.module').then(m => m.ShoppingModule) },
+
 ];
 
 @NgModule({
   imports:[
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,  { preloadingStrategy: PreloadAllModules })
   ],
   exports: [
     RouterModule
